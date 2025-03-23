@@ -35,6 +35,12 @@ class Send extends Controller
             $articles[] = $i;
         }
 
+        $items = [];
+
+        for ($i = 1; $i <= 10; $i++) {
+            $items[] = $i;
+        }
+
         return view('send', $data);
     }
 
