@@ -1,112 +1,66 @@
-**Чем отличается git pull от git fetch?**
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-* git fetch лишь загружает данные, но не изменяет вашу текущую рабочую ветку.
-* git pull загружает и сразу же сливает изменения с вашей рабочей веткой, что может повлиять на её состояние.
+<p align="center">
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
-**Что такое rebase и чем он отличается от merge?**
-* git merge — это команда, которая сливает изменения из одной ветки в другую, создавая слияние (merge commit).
-* git rebase — это команда, которая переписывает историю, перемещая коммиты из одной ветки на начало другой.
+## About Laravel
 
-| Характеристика         | git merge                                    | git rebase                                |
-|------------------------|-----------------------------------------------|-------------------------------------------|
-| **Тип коммита**        | Создаёт новый коммит слияния (merge commit).   | Переписывает историю, создавая новые коммиты. |
-| **История**            | Сохраняет всю историю веток.                  | История становится линейной, как будто изменений не было в нескольких ветках. |
-| **Конфликты**          | Конфликты могут быть решены в процессе слияния. | Конфликты могут возникать на каждом коммите в процессе ребейса. |
-| **Использование**      | Хорошо подходит для слияния больших изменений, чтобы сохранить историю. | Подходит для «чистоты» истории, когда нужно линейно интегрировать изменения. |
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-**Что делает команда git cherry-pick и в каких случаях она используется?**
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-Команда git cherry-pick в Git позволяет переносить отдельные коммиты из одной ветки в другую. Вместо того чтобы сливать все изменения между ветками, как это делает git merge, или переписывать историю, как в случае с git rebase, git cherry-pick позволяет вам выбрать конкретные коммиты и применить их к текущей ветке.
+## Learning Laravel
 
-**Чем git reset --soft, git reset --mixed и git reset --hard отличаются друг от друга?**
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-**git reset --soft**
-Что делает?
-Перемещает HEAD на указанный коммит.
-Оставляет изменения в индексе (staging area).
-Не затрагивает рабочую директорию (файлы остаются как есть).
-Когда использовать?
-Если вы хотите изменить последний коммит (git commit --amend).
-Если хотите объединить несколько коммитов перед git commit.
+You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-**git reset --mixed (по умолчанию)**
-Что делает?
-Перемещает HEAD на указанный коммит.
-Очищает индекс (staging area) (файлы становятся неотслеживаемыми).
-Не затрагивает рабочую директорию (файлы остаются без изменений).
-Когда использовать?
-Если нужно отменить коммит и разотметить файлы (git add).
-Чтобы начать заново без удаления изменений.
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-**git reset --hard**
-Что делает?
-Перемещает HEAD на указанный коммит.
-Очищает индекс (staging area).
-Удаляет все изменения из рабочей директории! (⚠ необратимо).
-Когда использовать?
-Если хотите полностью отменить изменения (как будто их не было).
-Если хотите сбросить ветку к старому состоянию.
+## Laravel Sponsors
 
-**Что делает git revert, и в чем его отличие от git reset?**
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-Команда git revert создаёт новый коммит, который отменяет изменения из указанного коммита.
-Она не изменяет историю, поэтому безопасна для использования в публичных репозиториях.
+### Premium Partners
 
-Как работает git revert?
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[WebReinvent](https://webreinvent.com/)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
+- **[Cyber-Duck](https://cyber-duck.co.uk)**
+- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
+- **[Jump24](https://jump24.co.uk)**
+- **[Redberry](https://redberry.international/laravel/)**
+- **[Active Logic](https://activelogic.com)**
+- **[byte5](https://byte5.de)**
+- **[OP.GG](https://op.gg)**
 
-`git revert <commit_hash>`
+## Contributing
 
-**Как отменить старый коммит с помощью git revert, если после него было сделано несколько новых коммитов?**
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-Если после коммита A (abc1234) были сделаны коммиты B, C и D, и вам нужно отменить только A, выполняем команду:
+## Code of Conduct
 
-`git revert abc1234`
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-Находим коммиты `git log --oneline`
+## Security Vulnerabilities
 
-**Как использовать git revert для отмены нескольких коммитов сразу?**
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-. Отмена нескольких коммитов по их хешам
-Если вам нужно отменить несколько несмежных коммитов, укажите их хеши через пробел:
+## License
 
-`git revert <commit1> <commit2> <commit3>
-`
-**Как использовать git revert для отката изменений только в конкретном файле?**
-
-`git log --oneline -- <file>`
-
-Можно использовать git checkout или git restore, чтобы взять старую версию файла:
-
-git checkout a1b2c3d~1 -- main.py
-
-git restore --source=a1b2c3d~1 -- main.py
-
-**Как просмотреть список коммитов, которые можно безопасно перенести с помощью git cherry-pick?**
-
-Чтобы использовать git cherry-pick, нужно определить список коммитов, которые можно безопасно перенести из одной ветки в другую.
-
-git log --oneline main..dev
-
-
-**В чем разница между git merge --squash и git rebase -i?**
-
-| Функция           | `git merge --squash`                                      | `git rebase -i`                                      |
-|-------------------|-----------------------------------------------------------|------------------------------------------------------|
-| **Как работает**  | Объединяет коммиты из одной ветки, но не создаёт merge-коммит. | Позволяет изменять историю, в том числе объединять коммиты. |
-| **История**       | История остаётся разветвлённой (но без merge-коммита).    | История становится линейной (изменяет существующие коммиты). |
-| **Когда применять** | При подготовке чистого коммита перед мёрджем в основную ветку. | Для редактирования истории своей ветки до её объединения. |
-| **Откат изменений** | Можно отменить перед коммитом.                          | После изменения истории отменить сложнее.           |
-| **Использование**  | `git merge --squash feature-branch`                      | `git rebase -i HEAD~N`                              |
-
-
-**Какие проблемы могут возникнуть при использовании git cherry-pick в команде с несколькими разработчиками?**
-
-Если позже сделать git merge между этими ветками, Git не распознает общий предок и может вызвать конфликты или создать дублирующие коммиты.
-
-Cherry-picking старого коммита в новую ветку, где код изменился, может привести к сложным конфликтам.
-
-git cherry-pick переносит только один коммит, но он может зависеть от других коммитов в исходной ветке.
-
-`git log --oneline --graph
-`
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
